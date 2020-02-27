@@ -3,6 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 use SysFlow\Controller\ListarTarefas;
 use SysFlow\Controller\NovaTarefa;
+use SysFlow\Controller\CadastroTarefa;
 
     switch ($_SERVER['PATH_INFO']) {
         case '/listar-tarefas':
@@ -11,6 +12,10 @@ use SysFlow\Controller\NovaTarefa;
             break;
         case '/formulario-tarefa':
             $controlador = new NovaTarefa();
+            $controlador->processaRequisicao();
+            break;
+        case '/salvarTarefa':
+            $controlador = new CadastroTarefa();
             $controlador->processaRequisicao();
             break;
         default:
