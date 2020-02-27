@@ -18,6 +18,6 @@
                     </span>
                 </li>
             <?php endforeach; ?>
-        </ul>
+        </ul> 
 <?php include __DIR__ . '/../rodape.php'; ?>    
    
