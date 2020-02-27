@@ -25,14 +25,25 @@ class CadastroTarefa implements InterfaceRequisicao
             INPUT_POST,
             'descricao',
             FILTER_SANITIZE_STRING);
+        
+        $id = filter_input(
+                INPUT_GET,
+                'id',
+                FILTER_VALIDATE_INT);
 
         $tarefa = new Curso();
         $tarefa->setDescricao($descricao);
     
-        $this->entityManager->persist($tarefa);
-        $this->entityManager->flush();
+        if (!is_null($id) && $id !== false) {
 
-       echo "Curso $descricao salvo com sucesso";
+            $tarefa->setId($id);
+            $this->entityManager->merge($tarefa);
+        } else {
+            $this->entityManager->persist($tarefa);
+          
+        }
+        $this->entityManager->flush();
+        echo "Tarefa  $descricao salvo com sucesso";
     
         header('location:/listar-tarefas', true, 302);
 
