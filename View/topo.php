@@ -11,7 +11,7 @@
     <body>
     <?php if (isset($_SESSION['logado'])) : ?>
         <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/listar-tarefas">Home</a>
+        <a class="navbar-brand" href="/listar-tarefas">Bem vindo(a), <?=$_SESSION['nome_usuario_logado']?></a>
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">

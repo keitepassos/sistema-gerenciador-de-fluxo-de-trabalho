@@ -1,8 +1,17 @@
 <?php  include __DIR__ . '/../topo.php'; ?>    
-    <form action='/salvarTarefa<?= isset($curso) ? '?id= ' . $curso->getId() : ''; ?>' METHOD='POST'>
+    <form action='/salvarTarefa<?= isset($tarefa) ? '?id= ' . $tarefa->getId() : ''; ?>' METHOD='POST'>
         <div class="form-group">
-            <label for="descricao">Descrição</label>
-            <input type="text" id="descricao" name="descricao" class="form-control" value="<?= isset($curso) ? $curso->getDescricao(): ''; ?>">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="descricao" class="form-control" value="<?= isset($tarefa) ? $tarefa->getTitulo(): ''; ?>">
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            
+            <select name='tipo'>
+                <option value='Abetura' <?= isset($tarefa) ? ($tarefa->getTipo()=='Abertura'?'selected':''): ''; ?> >Abertura</option>
+                <option value='Intermediária' <?= isset($tarefa) ? ($tarefa->getTipo()=='Intermediária'?'selected':''): ''; ?> >Intermediária</option>
+                <option value='Finalizadora' <?= isset($tarefa) ? ($tarefa->getTipo()=='Finalizadora'?'selected':''): ''; ?> >Finalizadora</option>
+            </select>
         </div>
         <button class="btn btn-primary">Salvar</button>
     </form>

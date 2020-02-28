@@ -48,10 +48,11 @@ class RealizarLogin implements InterfaceRequisicao
        
         $_SESSION['logado'] = true;
         $_SESSION['usuario_logado'] = $usuario;
+        $_SESSION['nome_usuario_logado'] =$email;
 
         unset($_SESSION['mensagem']);
         unset($_SESSION['tipo_mensagem']);
-        
+
         header('Location: /listar-tarefas');
             
     }

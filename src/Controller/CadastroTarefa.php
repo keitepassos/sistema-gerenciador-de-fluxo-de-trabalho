@@ -3,7 +3,7 @@
 
 namespace SysFlow\Controller;
 
-use SysFlow\Entity\Curso;
+use SysFlow\Entity\Tarefas;
 use SysFlow\Infra\EntityManagerCreator;
 
 class CadastroTarefa extends ControllerComHtml implements InterfaceRequisicao
@@ -25,14 +25,22 @@ class CadastroTarefa extends ControllerComHtml implements InterfaceRequisicao
             INPUT_POST,
             'descricao',
             FILTER_SANITIZE_STRING);
+
         
+        $tipo = filter_input(
+                INPUT_POST,
+                'tipo',
+                FILTER_SANITIZE_STRING);
+
+            
         $id = filter_input(
                 INPUT_GET,
                 'id',
                 FILTER_VALIDATE_INT);
 
-        $tarefa = new Curso();
-        $tarefa->setDescricao($descricao);
+        $tarefa = new Tarefas();
+        $tarefa->setTitulo($descricao);
+        $tarefa->setTipo($tipo);
     
         if (!is_null($id) && $id !== false) {
 

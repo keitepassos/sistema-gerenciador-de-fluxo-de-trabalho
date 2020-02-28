@@ -5,14 +5,14 @@
             </a>
         </div>
         <ul class="list-group">
-            <?php foreach ($cursos as $curso): ?>
+            <?php foreach ($tarefas as $tarefa): ?>
                 <li class="list-group-item d-flex justify-content-between">
-                    <?= $curso->getDescricao(); ?>
+                    <?= $tarefa->getTitulo(); ?>-<?= $tarefa->getTipo(); ?>
                     <span>
-                        <a href="/alterar-tarefa?id=<?= $curso->getId(); ?>" class="btn btn-info btn-sm">
+                        <a href="/alterar-tarefa?id=<?= $tarefa->getId(); ?>" class="btn btn-info btn-sm">
                             Alterar
                         </a>
-                        <a href="/excluir-tarefa?id=<?= $curso->getId(); ?>" class="btn btn-danger btn-sm">
+                        <a href="/excluir-tarefa?id=<?= $tarefa->getId(); ?>" class="btn btn-danger btn-sm">
                             Excluir
                         </a>
                     </span>

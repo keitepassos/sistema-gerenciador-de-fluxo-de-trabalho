@@ -2,7 +2,7 @@
 
 
 namespace SysFlow\Controller;
-use SysFlow\Entity\Curso;
+use SysFlow\Entity\Tarefas;
 use SysFlow\Infra\EntityManagerCreator;
 
 
@@ -33,7 +33,7 @@ class ExclusaoTarefa implements InterfaceRequisicao
             exit;
         }
 
-        $tarefas = $this->entityManager->getReference(Curso::class, $id);
+        $tarefas = $this->entityManager->getReference(Tarefas::class, $id);
         $this->entityManager->remove($tarefas);
         $this->entityManager->flush();
         $_SESSION['tipo_mensagem'] = 'success';

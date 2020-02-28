@@ -13,6 +13,7 @@ class ComposerStaticInit43e47f4b7425257dd9b160ec7cd9d8ef
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'SysFlow\\' => 8,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\Console\\' => 26,
@@ -28,13 +29,13 @@ class ComposerStaticInit43e47f4b7425257dd9b160ec7cd9d8ef
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
         ),
-        'A' => 
-        array (
-            'SysFlow\\' => 13,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'SysFlow\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -77,14 +78,10 @@ class ComposerStaticInit43e47f4b7425257dd9b160ec7cd9d8ef
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
-            1 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-        ),
-        'SysFlow\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
+            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
     );
 
