@@ -25,6 +25,10 @@ class ExclusaoTarefa implements InterfaceRequisicao
         FILTER_VALIDATE_INT);
 
         if (is_null($id) || $id === false) {
+            
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = 'Tarefa não existe.';
+
             header('Location: /listar-tarefas');
             exit;
         }
@@ -32,6 +36,8 @@ class ExclusaoTarefa implements InterfaceRequisicao
         $tarefas = $this->entityManager->getReference(Curso::class, $id);
         $this->entityManager->remove($tarefas);
         $this->entityManager->flush();
+        $_SESSION['tipo_mensagem'] = 'success';
+        $_SESSION['mensagem'] = 'Tarefa excluído com sucesso';
         header('Location: /listar-tarefas');
         }
 }

@@ -6,7 +6,10 @@ use SysFlow\Controller\{ NovaTarefa,
                          ListarTarefas,
                          CadastroTarefa,
                          ExclusaoTarefa,
-                         AlteracaoTarefa};
+                         AlteracaoTarefa,
+                         FormularioLogin,
+                         RealizarLogin,
+                         Deslogar};
 
 
 $caminho = $_SERVER['PATH_INFO'];
@@ -17,6 +20,18 @@ if(!array_key_exists($caminho, $rotas)){
     exit;
 }
 
+session_start();
+
+$ehRotaDeLogin = stripos($caminho, 'login');
+
+if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false) {
+    header('Location: /login');
+    exit();
+}
+
 $classe = $rotas[$caminho];
 $controller = new $classe;
 $controller->processaRequisicao();
+
+//unset($_SESSION['mensagem']);
+//unset($_SESSION['tipo_mensagem']);

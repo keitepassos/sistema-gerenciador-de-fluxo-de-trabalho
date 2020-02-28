@@ -1,5 +1,5 @@
 <?php
-namespace SysFlow\Armazenamento\Entity;
+namespace SysFlow\Entity;
 /**
  * @Entity
  * @Table(name="usuarios")

@@ -5,7 +5,7 @@ namespace SysFlow\Controller;
 use SysFlow\Entity\Curso;
 use SysFlow\Infra\EntityManagerCreator;
 
-class AlteracaoTarefa implements InterfaceRequisicao
+class AlteracaoTarefa extends ControllerComHtml implements InterfaceRequisicao
 {
 
     private $repositorioTarefas;
@@ -28,8 +28,14 @@ class AlteracaoTarefa implements InterfaceRequisicao
         }
     
         $curso = $this->repositorioTarefas->find($id);
-        $titulo =  'Alterar Tarefa </br>' . $curso->getDescricao();
-        require __DIR__ . '/../../view/tarefas/tarefa.php';
+       // $titulo =  'Alterar Tarefa </br>' . $curso->getDescricao();
+       // require __DIR__ . '/../../view/tarefas/tarefa.php';
+       echo  $this->renderizaHtml(
+        'tarefas/tarefa.php', 
+        [
+            'curso' => $curso, 
+            'titulo' => 'Alterar Tarefa:</br> ' .$curso->getDescricao()
+        ]);
     
     }
 }

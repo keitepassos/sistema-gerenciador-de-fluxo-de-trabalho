@@ -5,7 +5,7 @@ use SysFlow\Entity\Curso;
 use SysFlow\Infra\EntityManagerCreator;
 
 
-class ListarTarefas implements InterfaceRequisicao
+class ListarTarefas extends ControllerComHtml implements InterfaceRequisicao
 {
 
     private $repositorioDeCursos;
@@ -24,8 +24,12 @@ class ListarTarefas implements InterfaceRequisicao
 
         
 
-        $titulo = 'Lista de Tarefas';
-        require __DIR__ . '/../../view/Tarefas/listaTarefas.php';
+       // $titulo = 'Lista de Tarefas';
+       // require __DIR__ . '/../../view/Tarefas/listaTarefas.php';
+      echo $this->renderizaHtml('Tarefas/listaTarefas.php', [
+        'cursos' => $this->repositorioDeCursos->findAll(), 
+        'titulo' => 'Lista de Tarefas'
+        ]);
     }
 
 }

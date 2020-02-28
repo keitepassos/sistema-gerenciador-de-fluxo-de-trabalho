@@ -6,7 +6,7 @@ namespace SysFlow\Controller;
 use SysFlow\Entity\Curso;
 use SysFlow\Infra\EntityManagerCreator;
 
-class CadastroTarefa implements InterfaceRequisicao
+class CadastroTarefa extends ControllerComHtml implements InterfaceRequisicao
 {
 
     /**
@@ -38,12 +38,18 @@ class CadastroTarefa implements InterfaceRequisicao
 
             $tarefa->setId($id);
             $this->entityManager->merge($tarefa);
+
+            $_SESSION['mensagem'] = "Tarefa  $descricao alterada com sucesso";
         } else {
             $this->entityManager->persist($tarefa);
-          
+            $_SESSION['mensagem'] = "Tarefa  $descricao salva com sucesso";
         }
         $this->entityManager->flush();
-        echo "Tarefa  $descricao salvo com sucesso";
+        
+        
+       
+        
+        $_SESSION['tipo_mensagem'] = 'success';
     
         header('location:/listar-tarefas', true, 302);
 
