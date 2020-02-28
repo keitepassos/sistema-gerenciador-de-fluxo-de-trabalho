@@ -1,4 +1,5 @@
-# sistema-gerenciador-de-fluxo-de-trabalho
+# sistema-gerenciador-de-fluxo-de-trabalho 
+-->Apenas o crud de Tarefas (Por enquanto)
 sistema para gerenciar um pequeno fluxo de trabalho
 
 Requerido php 7.1+
